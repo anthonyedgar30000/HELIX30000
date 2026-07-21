@@ -11,10 +11,10 @@
     {
       "workstream_id": "conversation-role-registry-v0.1",
       "branch": "feature/conversation-role-registry-v0.1",
-      "pull_request": null,
+      "pull_request": 1,
       "write_owner": "HELIX — Governed Agent Engineering / Coordination and Reality Control conversation",
       "objective": "Create a machine-readable conversation-role registry so visible agent identities, repository ownership, review authority, and lifecycle claims can be reconciled without relying on chat titles or memory.",
-      "status": "implementation_in_progress",
+      "status": "draft_pr_open_ci_pending",
       "permitted_paths": [
         "README.md",
         ".project/active-work.json",
@@ -49,10 +49,17 @@
         "the PR diff remains inside the declared permitted paths",
         "CI uses no secrets, cloud credentials, external APIs, or mutation capabilities"
       ],
-      "next_gate": "Open a draft pull request, obtain exact-head CI, and request an independent coordination review. Do not merge or treat prescribed chat titles as automatically applied."
+      "next_gate": "Obtain exact-head CI and an independent coordination review. Keep PR #1 draft; do not merge or treat prescribed chat titles as automatically applied."
     }
   ],
-  "known_open_pull_requests": [],
+  "known_open_pull_requests": [
+    {
+      "pull_request": 1,
+      "title": "Add HELIX conversation-role registry v0.1",
+      "status": "draft_ci_pending",
+      "action": "Keep draft pending exact-head CI and independent coordination review."
+    }
+  ],
   "authority_boundary": {
     "service_tracer": "read-only evidence; PR #27 remains owned by the ServiceTracer Azure Operations conversation",
     "protocol_kernel": "read-only evidence; PR #4 remains owned by the Protocol Kernel and Agent Interoperability conversation",
