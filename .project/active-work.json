@@ -34,11 +34,11 @@
     {
       "workstream_id": "registry-pr1-merge-reconciliation",
       "branch": "chore/reconcile-registry-pr1-merge",
-      "pull_request": null,
+      "pull_request": 2,
       "write_owner": "HELIX — Governed Agent Engineering / Coordination and Reality Control conversation",
       "objective": "Reconcile HELIX30000 after PR #1 merged by recording the merge and skipped review gate, releasing the obsolete feature-branch role claim, and separating stable control-tower coordination from temporary branch ownership.",
-      "status": "implementation_in_progress",
-      "authority_expiry_condition": "This write claim expires automatically when the reconciliation pull request closes or merges; live GitHub state outranks this record.",
+      "status": "draft_pr_open_ci_pending",
+      "authority_expiry_condition": "This write claim expires automatically when PR #2 closes or merges; live GitHub state outranks this record.",
       "permitted_paths": [
         ".project/active-work.json",
         ".helix/conversation-role-registry.json",
@@ -74,10 +74,17 @@
         "the pull-request diff remains inside permitted_paths",
         "CI uses no secrets, cloud credentials, external APIs, or mutation capabilities"
       ],
-      "next_gate": "Open a draft pull request, obtain exact-head CI, and request independent coordination review. Do not merge from this conversation."
+      "next_gate": "Obtain exact-head CI and an independent coordination review. Keep PR #2 draft and do not merge from this conversation."
     }
   ],
-  "known_open_pull_requests": [],
+  "known_open_pull_requests": [
+    {
+      "pull_request": 2,
+      "title": "Reconcile registry after PR1 merge",
+      "status": "draft_ci_pending",
+      "action": "Keep draft pending exact-head CI and independent coordination review."
+    }
+  ],
   "authority_boundary": {
     "service_tracer": "read-only evidence; PR #27 remains owned by the ServiceTracer Azure Operations conversation",
     "protocol_kernel": "read-only evidence; PR #4 remains owned by the Protocol Kernel and Agent Interoperability conversation",
