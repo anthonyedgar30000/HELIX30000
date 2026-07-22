@@ -1,15 +1,34 @@
 {
   "schema_version": "project.active-work.v1",
-  "project": "HELIX — Governed Agent Engineering",
-  "updated_on": "2026-07-21",
+  "project": "HELIX — Coordination and Reality Control",
+  "updated_on": "2026-07-22",
+  "repository_role": "HELIX umbrella architecture and coordination registry",
+  "resolution_rules": {
+    "current_default_branch_head": "Resolve from live GitHub metadata. Embedded commit SHAs are historical observations and must not be treated as the current head after later commits or merges.",
+    "open_pull_requests": "Resolve from live GitHub metadata. Do not maintain a supposedly canonical embedded open-PR list that becomes stale when this file is committed.",
+    "temporary_write_authority": "A temporary write claim is valid only for its named repository branch, declared paths, and open pull request. It expires automatically when that pull request closes or merges.",
+    "current_ci_review_and_merge_gate": "Resolve from live GitHub workflow, review, pull-request and approval metadata for the exact current head. Do not embed a current pass, pending or approval state as canonical project truth.",
+    "source_precedence": [
+      "live operational evidence",
+      "live deployed-resource evidence",
+      "live GitHub repository, pull-request, review and CI metadata",
+      "active branch .project state",
+      "merged main .project state",
+      "conversation-role registry",
+      "ChatGPT project instructions and conversation memory"
+    ]
+  },
   "trusted_baseline": {
     "branch": "main",
-    "commit": "a7335ad94749681e86bbf65ba632c562766bd2db",
-    "commit_semantics": "Verified live main head after HELIX30000 PR #1 merged; live GitHub state determines the current head.",
+    "resolution": "live_github_default_branch_head",
+    "last_observed_commit": "102ca9dde2d1479c92a2c5967a46da31b0a8f3ed",
+    "observed_on": "2026-07-22",
+    "observation_semantics": "Historical observation of main immediately after HELIX30000 PR #2 merged. Live GitHub determines the current head.",
     "last_completed_increment": {
-      "pull_request": 1,
-      "title": "Add HELIX conversation-role registry v0.1",
-      "merge_commit": "a7335ad94749681e86bbf65ba632c562766bd2db"
+      "pull_request": 2,
+      "title": "Reconcile registry after PR1 merge",
+      "head_commit": "e15c11d42b3c720d2b0dac7aed44c5de4d62c6d7",
+      "merge_commit": "102ca9dde2d1479c92a2c5967a46da31b0a8f3ed"
     }
   },
   "completed_increments": [
@@ -28,27 +47,46 @@
       "deployed": false,
       "operationally_verified": false,
       "chat_titles_automatically_applied": false
+    },
+    {
+      "pull_request": 2,
+      "title": "Reconcile registry after PR1 merge",
+      "head_commit": "e15c11d42b3c720d2b0dac7aed44c5de4d62c6d7",
+      "merge_commit": "102ca9dde2d1479c92a2c5967a46da31b0a8f3ed",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29881937812,
+        "conclusion": "success"
+      },
+      "review_record": {
+        "submitted_state": "COMMENTED",
+        "author_was_pull_request_author": true,
+        "independent_github_identity": false,
+        "findings_addressed_before_final_head": true
+      },
+      "independent_review_completed": false,
+      "governance_exception": "PR #2 merged after exact-head CI and after its owner-identity review findings were addressed, but without an independent review from a separate GitHub identity.",
+      "deployed": false,
+      "operationally_verified": false
     }
   ],
   "workstreams": [
     {
-      "workstream_id": "registry-pr1-merge-reconciliation",
-      "branch": "chore/reconcile-registry-pr1-merge",
-      "pull_request": 2,
-      "write_owner": "HELIX — Governed Agent Engineering / Coordination and Reality Control conversation",
-      "objective": "Reconcile HELIX30000 after PR #1 merged by recording the merge and skipped review gate, releasing the obsolete feature-branch role claim, and separating stable control-tower coordination from temporary branch ownership.",
-      "status": "review_findings_addressed_ci_resolved_from_live_github_independent_review_pending",
-      "authority_expiry_condition": "This write claim expires automatically when PR #2 closes or merges; live GitHub state outranks this record.",
+      "workstream_id": "registry-pr2-merge-closure-reconciliation",
+      "branch": "chore/reconcile-registry-pr2-merge",
+      "pull_request": 3,
+      "write_owner": "HELIX — Coordination and Reality Control conversation",
+      "objective": "Close the stale PR #2 project state and make future reconciliation resolve changing GitHub state live instead of embedding self-invalidating current-head, open-PR, CI, review or approval claims.",
+      "status": "temporary_claim_active_while_pull_request_is_open",
+      "status_resolution": "Resolve the pull-request state, exact current head, CI, reviews and merge approval from live GitHub metadata.",
+      "authority_expiry_condition": "This temporary write claim expires automatically when PR #3 closes or merges; live GitHub state outranks this record.",
       "permitted_paths": [
         ".project/active-work.json",
-        ".helix/conversation-role-registry.json",
-        ".helix/schemas/conversation-role-registry.schema.json",
-        "scripts/validate_conversation_roles.py",
-        "tests/test_conversation_roles.py",
-        "docs/reviews/conversation-role-registry-pr1-reconciliation-2026-07-21.md"
+        "docs/reviews/conversation-role-registry-pr2-closure-2026-07-22.md"
       ],
       "protected_paths": [
         ".github/workflows/**",
+        ".helix/**",
         "runtime/**",
         "deployment/**",
         "**/*credential*",
@@ -56,7 +94,7 @@
         "external repositories"
       ],
       "capability_boundary": {
-        "repository_writes": "declared permitted paths in anthonyedgar30000/HELIX30000 only",
+        "repository_writes": "Only the two declared permitted paths in anthonyedgar30000/HELIX30000 on chore/reconcile-registry-pr2-merge",
         "pull_request_creation": true,
         "pull_request_merge": false,
         "external_repository_writes": false,
@@ -65,58 +103,35 @@
         "credential_use": false
       },
       "verification_criteria": [
-        "the registry validates with the standard-library validator",
-        "the complete unittest suite passes",
-        "the control-tower role cannot claim persistent branch ownership or repository-write authority",
-        "only write_owner roles can own a repository branch",
-        "PR #1 is recorded as merged and CI-verified but not independently reviewed",
-        "external PR heads are refreshed from live GitHub metadata",
-        "the pull-request diff remains inside permitted_paths",
-        "CI uses no secrets, cloud credentials, external APIs, or mutation capabilities"
+        "the complete existing CI suite passes on the exact current PR #3 head",
+        "the changed-file list contains only the two declared paths",
+        "PR #1 and PR #2 remain accurately classified",
+        "PR #2's missing separate-identity review remains visible as a governance exception",
+        "current default-branch head and open pull requests are resolved from live GitHub metadata",
+        "current CI, review and merge-approval status is resolved from live GitHub metadata",
+        "temporary write authority expires from live pull-request state instead of persisting as stable control-tower authority",
+        "no runtime, workflow, schema, registry, credential, deployment, cloud or external-repository paths change"
       ],
-      "next_gate": "Confirm exact-current-head CI from live GitHub metadata, then obtain an independent coordination review from a separate GitHub identity. If the head changes, repeat both checks. Keep PR #2 draft and do not merge from this conversation.",
-      "reviewed_head_evidence": {
-        "head_commit": "25cc3f2b240e9fc78252d5f0eac8a02d94421938",
-        "exact_head_ci": {
-          "workflow": "CI",
-          "run_id": 29873255467,
-          "conclusion": "success"
-        },
-        "review": {
-          "github_review_id": 4749978231,
-          "recorded_decision": "request_changes",
-          "independent_github_identity": false,
-          "required_changes": [
-            "record the successful CI evidence without treating it as verification of a later patched head",
-            "refresh HELIX Protocol Kernel PR #4 to the live head and exact-head CI run",
-            "restore deterministic human-reviewable JSON formatting"
-          ]
-        }
-      },
-      "live_ci_resolution": {
-        "source_of_truth": "live_github_workflow_metadata",
-        "latest_observed_head": "408163e9ccd422907f85326614b68a35acd06757",
-        "latest_observed_run": {
-          "workflow": "CI",
-          "run_id": 29881834571,
-          "conclusion": "success"
-        },
-        "evidence_boundary": "Embedding a CI observation creates a later commit, so this object is historical evidence only. Live GitHub metadata determines whether the exact current head is CI-verified."
+      "next_gate": "Resolve the exact-current-head CI result and final diff review from live GitHub metadata. Keep PR #3 draft until Anthony explicitly approves merge. Record a separate-identity review when available; do not fabricate one.",
+      "base_observation": {
+        "main_commit": "102ca9dde2d1479c92a2c5967a46da31b0a8f3ed",
+        "open_pull_requests_before_pr3": [],
+        "pr3_created_at_initial_head": "3057297963504db89b360151e07cb17833b4e024",
+        "evidence_boundary": "These are historical observations. Live GitHub determines current head, pull-request state, CI and review status."
       }
     }
   ],
-  "known_open_pull_requests": [
-    {
-      "pull_request": 2,
-      "title": "Reconcile registry after PR1 merge",
-      "status": "draft_review_findings_addressed_ci_resolved_from_live_github_independent_review_pending",
-      "action": "Resolve exact-current-head CI from live GitHub metadata and keep draft pending independent coordination review from a separate GitHub identity."
-    }
-  ],
+  "pull_request_state_resolution": {
+    "source_of_truth": "live_github_metadata",
+    "current_reconciliation_pull_request": 3,
+    "pull_request_identifier_semantics": "The number identifies the temporary workstream. Its state, head, CI, reviews and merge status must be resolved live.",
+    "embedded_open_pull_request_list_is_canonical": false
+  },
   "authority_boundary": {
+    "helix30000_control_tower": "coordination-only outside an explicitly declared temporary workstream; stable role does not grant repository-write authority",
     "service_tracer": "read-only evidence; PR #27 remains owned by the ServiceTracer Azure Operations conversation",
     "protocol_kernel": "read-only evidence; PR #4 remains owned by the Protocol Kernel and Agent Interoperability conversation",
-    "contextos": "read-only evidence; PR #13 has no repository-native active-work ownership record and remains unresolved",
+    "contextos": "read-only evidence; PR #13 ownership remains unresolved until repository-native project state or an explicit handoff establishes it",
     "azure_mutations_authorized": false
   }
 }
