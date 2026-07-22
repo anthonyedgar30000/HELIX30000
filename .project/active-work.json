@@ -7,6 +7,7 @@
     "current_default_branch_head": "Resolve from live GitHub metadata. Embedded commit SHAs are historical observations and must not be treated as the current head after later commits or merges.",
     "open_pull_requests": "Resolve from live GitHub metadata. Do not maintain a supposedly canonical embedded open-PR list that becomes stale when this file is committed.",
     "temporary_write_authority": "A temporary write claim is valid only for its named repository branch, declared paths, and open pull request. It expires automatically when that pull request closes or merges.",
+    "current_ci_review_and_merge_gate": "Resolve from live GitHub workflow, review, pull-request and approval metadata for the exact current head. Do not embed a current pass, pending or approval state as canonical project truth.",
     "source_precedence": [
       "live GitHub repository, pull-request, review and CI metadata",
       "live deployed or operational evidence when applicable",
@@ -74,8 +75,9 @@
       "branch": "chore/reconcile-registry-pr2-merge",
       "pull_request": 3,
       "write_owner": "HELIX — Coordination and Reality Control conversation",
-      "objective": "Close the stale PR #2 project state and make future reconciliation resolve changing GitHub state live instead of embedding self-invalidating current-head and open-PR claims.",
-      "status": "draft_exact_head_ci_pending",
+      "objective": "Close the stale PR #2 project state and make future reconciliation resolve changing GitHub state live instead of embedding self-invalidating current-head, open-PR, CI, review or approval claims.",
+      "status": "temporary_claim_active_while_pull_request_is_open",
+      "status_resolution": "Resolve the pull-request state, exact current head, CI, reviews and merge approval from live GitHub metadata.",
       "authority_expiry_condition": "This temporary write claim expires automatically when PR #3 closes or merges; live GitHub state outranks this record.",
       "permitted_paths": [
         ".project/active-work.json",
@@ -105,10 +107,11 @@
         "PR #1 and PR #2 remain accurately classified",
         "PR #2's missing separate-identity review remains visible as a governance exception",
         "current default-branch head and open pull requests are resolved from live GitHub metadata",
+        "current CI, review and merge-approval status is resolved from live GitHub metadata",
         "temporary write authority expires from live pull-request state instead of persisting as stable control-tower authority",
         "no runtime, workflow, schema, registry, credential, deployment, cloud or external-repository paths change"
       ],
-      "next_gate": "Obtain successful exact-head CI and perform a final read-only diff review. Keep PR #3 draft until Anthony explicitly approves merge. Record a separate-identity review when available; do not fabricate one.",
+      "next_gate": "Resolve the exact-current-head CI result and final diff review from live GitHub metadata. Keep PR #3 draft until Anthony explicitly approves merge. Record a separate-identity review when available; do not fabricate one.",
       "base_observation": {
         "main_commit": "102ca9dde2d1479c92a2c5967a46da31b0a8f3ed",
         "open_pull_requests_before_pr3": [],
@@ -120,6 +123,7 @@
   "pull_request_state_resolution": {
     "source_of_truth": "live_github_metadata",
     "current_reconciliation_pull_request": 3,
+    "pull_request_identifier_semantics": "The number identifies the temporary workstream. Its state, head, CI, reviews and merge status must be resolved live.",
     "embedded_open_pull_request_list_is_canonical": false
   },
   "authority_boundary": {
