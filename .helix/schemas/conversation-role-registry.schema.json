@@ -201,6 +201,7 @@
         },
         "authority_state": {
           "enum": [
+            "coordination_only",
             "confirmed",
             "review_only",
             "unresolved",

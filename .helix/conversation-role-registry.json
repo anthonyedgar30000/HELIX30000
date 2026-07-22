@@ -17,24 +17,26 @@
       "role_id": "helix-control-tower",
       "desired_chat_title": "[CONTROL] HELIX — Coordination & Reality",
       "role_type": "control_tower",
-      "authority_state": "confirmed",
-      "owned_repository": "anthonyedgar30000/HELIX30000",
-      "owned_branch": "feature/conversation-role-registry-v0.1",
+      "authority_state": "coordination_only",
+      "owned_repository": null,
+      "owned_branch": null,
       "target": {
         "repository": "anthonyedgar30000/HELIX30000",
-        "branch": "feature/conversation-role-registry-v0.1",
+        "branch": "main",
         "pull_request": null,
-        "head_sha": null
+        "head_sha": "a7335ad94749681e86bbf65ba632c562766bd2db"
       },
-      "current_status": "conversation_role_registry_implementation_in_progress",
+      "current_status": "registry_v0_1_merged_ci_verified_independent_review_not_completed",
       "allowed_actions": [
         "repository_read",
-        "repository_write_declared_scope",
-        "pull_request_create",
         "cross_repository_read_only_lookup",
-        "review_and_handoff"
+        "review_and_handoff",
+        "ownership_resolution",
+        "propose_bounded_workstream"
       ],
       "prohibited_actions": [
+        "repository_write",
+        "branch_ownership_claim",
         "pull_request_merge",
         "external_repository_write",
         "chat_ui_rename",
@@ -44,16 +46,16 @@
       "lifecycle": {
         "proposed": true,
         "implemented": true,
-        "ci_verified": false,
-        "merged": false,
+        "ci_verified": true,
+        "merged": true,
         "deployed": false,
         "operationally_verified": false
       },
       "evidence": {
-        "source_kind": "repository_active_work",
-        "evidence_strength": "authoritative_for_this_repository",
+        "source_kind": "merged_main_state_and_live_pull_request_metadata",
+        "evidence_strength": "authoritative_for_registry_merge_state",
         "repository": "anthonyedgar30000/HELIX30000",
-        "observed_ref": "feature/conversation-role-registry-v0.1:.project/active-work.json",
+        "observed_ref": "main@a7335ad94749681e86bbf65ba632c562766bd2db; pull/1 merged; exact-head CI run 29871475691 passed; submitted reviews none",
         "observed_on": "2026-07-21"
       }
     },
@@ -157,9 +159,9 @@
         "repository": "anthonyedgar30000/helix-protocol-kernel",
         "branch": "feature/edge-envelope-v0.3",
         "pull_request": 4,
-        "head_sha": "28ad96e63baf6e3cc5e5d5a0059bb56f7ec227f3"
+        "head_sha": "d6ab94a4f158bda5f450c26c1119da34b7adaf0f"
       },
-      "current_status": "draft_exact_head_ci_verified_independent_re_review_pending",
+      "current_status": "draft_exact_head_ci_verified_technical_review_passed_formal_external_identity_approval_pending",
       "allowed_actions": [
         "repository_read",
         "repository_write_declared_scope",
@@ -181,10 +183,10 @@
         "operationally_verified": false
       },
       "evidence": {
-        "source_kind": "active_branch_project_state",
-        "evidence_strength": "authoritative_for_branch_ownership",
+        "source_kind": "active_branch_project_state_exact_head_ci_and_read_only_review",
+        "evidence_strength": "authoritative_for_branch_ownership_ci_and_technical_review_record",
         "repository": "anthonyedgar30000/helix-protocol-kernel",
-        "observed_ref": "feature/edge-envelope-v0.3:.project/active-work.json#workstreams[edge-envelope-v0.3]",
+        "observed_ref": "feature/edge-envelope-v0.3:.project/active-work.json#workstreams[edge-envelope-v0.3]; head d6ab94a4f158bda5f450c26c1119da34b7adaf0f; CI run 29872964016 success; read-only technical review recorded no blocking findings; formal separate-identity GitHub approval unavailable",
         "observed_on": "2026-07-21"
       }
     },
@@ -243,7 +245,7 @@
         "repository": "anthonyedgar30000/helix-protocol-kernel",
         "branch": "feature/edge-envelope-v0.3",
         "pull_request": 4,
-        "head_sha": "28ad96e63baf6e3cc5e5d5a0059bb56f7ec227f3"
+        "head_sha": "d6ab94a4f158bda5f450c26c1119da34b7adaf0f"
       },
       "current_status": "ownership_handed_off_to_protocol_kernel_conversation",
       "allowed_actions": [

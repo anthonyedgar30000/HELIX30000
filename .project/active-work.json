@@ -4,32 +4,56 @@
   "updated_on": "2026-07-21",
   "trusted_baseline": {
     "branch": "main",
-    "commit": "d53d90fb499c7dc1b241419041b839618e2c5605",
-    "commit_semantics": "Bootstrap commit for the previously empty HELIX30000 repository; live GitHub state determines the current head."
+    "commit": "a7335ad94749681e86bbf65ba632c562766bd2db",
+    "commit_semantics": "Verified live main head after HELIX30000 PR #1 merged; live GitHub state determines the current head.",
+    "last_completed_increment": {
+      "pull_request": 1,
+      "title": "Add HELIX conversation-role registry v0.1",
+      "merge_commit": "a7335ad94749681e86bbf65ba632c562766bd2db"
+    }
   },
+  "completed_increments": [
+    {
+      "pull_request": 1,
+      "title": "Add HELIX conversation-role registry v0.1",
+      "head_commit": "e838c36b1e25ce902c6e9cbb460450f2a5865101",
+      "merge_commit": "a7335ad94749681e86bbf65ba632c562766bd2db",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29871475691,
+        "conclusion": "success"
+      },
+      "independent_review_completed": false,
+      "governance_exception": "PR #1 merged after exact-head CI but before the required independent coordination review was completed.",
+      "deployed": false,
+      "operationally_verified": false,
+      "chat_titles_automatically_applied": false
+    }
+  ],
   "workstreams": [
     {
-      "workstream_id": "conversation-role-registry-v0.1",
-      "branch": "feature/conversation-role-registry-v0.1",
-      "pull_request": 1,
+      "workstream_id": "registry-pr1-merge-reconciliation",
+      "branch": "chore/reconcile-registry-pr1-merge",
+      "pull_request": 2,
       "write_owner": "HELIX — Governed Agent Engineering / Coordination and Reality Control conversation",
-      "objective": "Create a machine-readable conversation-role registry so visible agent identities, repository ownership, review authority, and lifecycle claims can be reconciled without relying on chat titles or memory.",
-      "status": "draft_pr_open_ci_pending",
+      "objective": "Reconcile HELIX30000 after PR #1 merged by recording the merge and skipped review gate, releasing the obsolete feature-branch role claim, and separating stable control-tower coordination from temporary branch ownership.",
+      "status": "review_findings_addressed_ci_resolved_from_live_github_independent_review_pending",
+      "authority_expiry_condition": "This write claim expires automatically when PR #2 closes or merges; live GitHub state outranks this record.",
       "permitted_paths": [
-        "README.md",
         ".project/active-work.json",
         ".helix/conversation-role-registry.json",
         ".helix/schemas/conversation-role-registry.schema.json",
-        "docs/conversation-role-cards.md",
         "scripts/validate_conversation_roles.py",
         "tests/test_conversation_roles.py",
-        ".github/workflows/ci.yml"
+        "docs/reviews/conversation-role-registry-pr1-reconciliation-2026-07-21.md"
       ],
       "protected_paths": [
+        ".github/workflows/**",
         "runtime/**",
         "deployment/**",
         "**/*credential*",
-        "**/*secret*"
+        "**/*secret*",
+        "external repositories"
       ],
       "capability_boundary": {
         "repository_writes": "declared permitted paths in anthonyedgar30000/HELIX30000 only",
@@ -43,21 +67,50 @@
       "verification_criteria": [
         "the registry validates with the standard-library validator",
         "the complete unittest suite passes",
-        "no repository branch has more than one confirmed write owner",
-        "review-only, unresolved, handed-off, backlog, archive, and reference roles cannot claim repository-write authority",
-        "lifecycle claims are monotonic from proposed through operationally verified",
-        "the PR diff remains inside the declared permitted paths",
+        "the control-tower role cannot claim persistent branch ownership or repository-write authority",
+        "only write_owner roles can own a repository branch",
+        "PR #1 is recorded as merged and CI-verified but not independently reviewed",
+        "external PR heads are refreshed from live GitHub metadata",
+        "the pull-request diff remains inside permitted_paths",
         "CI uses no secrets, cloud credentials, external APIs, or mutation capabilities"
       ],
-      "next_gate": "Obtain exact-head CI and an independent coordination review. Keep PR #1 draft; do not merge or treat prescribed chat titles as automatically applied."
+      "next_gate": "Confirm exact-current-head CI from live GitHub metadata, then obtain an independent coordination review from a separate GitHub identity. If the head changes, repeat both checks. Keep PR #2 draft and do not merge from this conversation.",
+      "reviewed_head_evidence": {
+        "head_commit": "25cc3f2b240e9fc78252d5f0eac8a02d94421938",
+        "exact_head_ci": {
+          "workflow": "CI",
+          "run_id": 29873255467,
+          "conclusion": "success"
+        },
+        "review": {
+          "github_review_id": 4749978231,
+          "recorded_decision": "request_changes",
+          "independent_github_identity": false,
+          "required_changes": [
+            "record the successful CI evidence without treating it as verification of a later patched head",
+            "refresh HELIX Protocol Kernel PR #4 to the live head and exact-head CI run",
+            "restore deterministic human-reviewable JSON formatting"
+          ]
+        }
+      },
+      "live_ci_resolution": {
+        "source_of_truth": "live_github_workflow_metadata",
+        "latest_observed_head": "408163e9ccd422907f85326614b68a35acd06757",
+        "latest_observed_run": {
+          "workflow": "CI",
+          "run_id": 29881834571,
+          "conclusion": "success"
+        },
+        "evidence_boundary": "Embedding a CI observation creates a later commit, so this object is historical evidence only. Live GitHub metadata determines whether the exact current head is CI-verified."
+      }
     }
   ],
   "known_open_pull_requests": [
     {
-      "pull_request": 1,
-      "title": "Add HELIX conversation-role registry v0.1",
-      "status": "draft_ci_pending",
-      "action": "Keep draft pending exact-head CI and independent coordination review."
+      "pull_request": 2,
+      "title": "Reconcile registry after PR1 merge",
+      "status": "draft_review_findings_addressed_ci_resolved_from_live_github_independent_review_pending",
+      "action": "Resolve exact-current-head CI from live GitHub metadata and keep draft pending independent coordination review from a separate GitHub identity."
     }
   ],
   "authority_boundary": {
