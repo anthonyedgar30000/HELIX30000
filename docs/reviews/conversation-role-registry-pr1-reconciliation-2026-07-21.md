@@ -29,6 +29,17 @@ implemented
 
 The merge does not retroactively create a review decision. The missing review is recorded as a governance exception rather than hidden or inferred.
 
+## PR #2 reconciliation verification
+
+The first PR #2 candidate head was
+`25cc3f2b240e9fc78252d5f0eac8a02d94421938`.
+
+- Exact-head CI run `29873255467` completed successfully.
+- Review record `4749978231` documented `REQUEST CHANGES`.
+- The review was submitted through the pull-request author's GitHub identity, so it is not an independent GitHub approval or rejection.
+- The required corrections were to preserve the successful CI record without treating it as proof for a later patched head, refresh Protocol Kernel PR #4 from live GitHub metadata, and restore deterministic human-reviewable JSON formatting.
+- This correction patch changes the PR head, so a fresh exact-head CI run and a separate-identity coordination review are required before any merge decision.
+
 ## Role-model correction
 
 The original registry treated the permanent `CONTROL` conversation as a confirmed owner of the temporary feature branch `feature/conversation-role-registry-v0.1`.
@@ -48,11 +59,11 @@ The corrected model is:
 
 ## External reality refreshed
 
-This reconciliation also refreshes the exact targets already represented in the registry:
+This reconciliation refreshes the exact targets already represented in the registry:
 
-- ServiceTracer PR #27 remains open and draft at `bad79ac2a8ba8fa9568737fc3c3635b93f2dbaca`;
-- HELIX Protocol Kernel PR #4 remains open and draft at `d1687ad2ee3981efd2390ecee6e2e7783acc2de5`, with exact-head CI run `29871955547` successful;
-- ContextOS PR #13 remains open and mergeable at `98d268198465bcea6b73cdf552732acc9e5f4246`, with repository-native ownership unresolved.
+- ServiceTracer PR #27 remains open and draft at `bad79ac2a8ba8fa9568737fc3c3635b93f2dbaca`; exact-head CI run `29867691197` succeeded and the recorded operations-and-recovery review requested changes.
+- HELIX Protocol Kernel PR #4 remains open and draft at `d6ab94a4f158bda5f450c26c1119da34b7adaf0f`; exact-head CI run `29872964016` succeeded, and a read-only technical review recorded no blocking findings, but formal approval from a separate GitHub identity is still missing.
+- ContextOS PR #13 remains open and mergeable at `98d268198465bcea6b73cdf552732acc9e5f4246`; no exact-head CI run exists, repository-native ownership remains unresolved, and the recorded review requested changes.
 
 These observations do not transfer ownership or authorize writes to those repositories.
 
