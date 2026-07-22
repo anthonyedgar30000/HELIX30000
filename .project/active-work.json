@@ -9,8 +9,9 @@
     "temporary_write_authority": "A temporary write claim is valid only for its named repository branch, declared paths, and open pull request. It expires automatically when that pull request closes or merges.",
     "current_ci_review_and_merge_gate": "Resolve from live GitHub workflow, review, pull-request and approval metadata for the exact current head. Do not embed a current pass, pending or approval state as canonical project truth.",
     "source_precedence": [
+      "live operational evidence",
+      "live deployed-resource evidence",
       "live GitHub repository, pull-request, review and CI metadata",
-      "live deployed or operational evidence when applicable",
       "active branch .project state",
       "merged main .project state",
       "conversation-role registry",
