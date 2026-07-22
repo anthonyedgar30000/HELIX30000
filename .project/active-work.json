@@ -1,1 +1,156 @@
-{"schema_version":"project.active-work.v1","project":"HELIX — Coordination and Reality Control","updated_on":"2026-07-22","repository_role":"HELIX umbrella architecture and coordination registry","resolution_rules":{"current_default_branch_head":"Resolve from live GitHub metadata. Embedded commit SHAs are historical observations and must not be treated as the current head after later commits or merges.","open_pull_requests":"Resolve from live GitHub metadata. Do not maintain a supposedly canonical embedded open-PR list that becomes stale when this file is committed.","temporary_write_authority":"A temporary write claim is valid only for its named repository branch, declared paths, and open pull request. It expires automatically when that pull request closes or merges.","current_ci_review_and_merge_gate":"Resolve from live GitHub workflow, review, pull-request and approval metadata for the exact current head. Do not embed a current pass, pending or approval state as canonical project truth.","source_precedence":["live operational evidence","live deployed-resource evidence","live GitHub repository, pull-request, review and CI metadata","active branch .project state","merged main .project state","conversation-role registry","ChatGPT project instructions and conversation memory"]},"trusted_baseline":{"branch":"main","resolution":"live_github_default_branch_head","last_observed_commit":"03a03c54b17c30ddcb1448a888249aef0d92ab44","observed_on":"2026-07-22","observation_semantics":"Historical observation of main immediately after HELIX30000 PR #3 merged. Live GitHub determines the current head.","last_completed_increment":{"pull_request":3,"title":"Make post-merge reconciliation non-self-referential","head_commit":"2311fb9f71280240f6fc1111feb28c85eb0fdb35","merge_commit":"03a03c54b17c30ddcb1448a888249aef0d92ab44"}},"completed_increments":[{"pull_request":1,"title":"Add HELIX conversation-role registry v0.1","head_commit":"e838c36b1e25ce902c6e9cbb460450f2a5865101","merge_commit":"a7335ad94749681e86bbf65ba632c562766bd2db","exact_head_ci":{"workflow":"CI","run_id":29871475691,"conclusion":"success"},"independent_review_completed":false,"governance_exception":"PR #1 merged after exact-head CI but before the required independent coordination review was completed.","deployed":false,"operationally_verified":false,"chat_titles_automatically_applied":false},{"pull_request":2,"title":"Reconcile registry after PR1 merge","head_commit":"e15c11d42b3c720d2b0dac7aed44c5de4d62c6d7","merge_commit":"102ca9dde2d1479c92a2c5967a46da31b0a8f3ed","exact_head_ci":{"workflow":"CI","run_id":29881937812,"conclusion":"success"},"review_record":{"submitted_state":"COMMENTED","author_was_pull_request_author":true,"independent_github_identity":false,"findings_addressed_before_final_head":true},"independent_review_completed":false,"governance_exception":"PR #2 merged after exact-head CI and after its owner-identity review findings were addressed, but without an independent review from a separate GitHub identity.","deployed":false,"operationally_verified":false},{"pull_request":3,"title":"Make post-merge reconciliation non-self-referential","head_commit":"2311fb9f71280240f6fc1111feb28c85eb0fdb35","merge_commit":"03a03c54b17c30ddcb1448a888249aef0d92ab44","exact_head_ci":{"workflow":"CI","run_id":29889509277,"conclusion":"success"},"independent_review_completed":false,"governance_exception":"PR #3 merged after exact-head CI and owner-side read-only review, but without a submitted review from a separate GitHub identity.","deployed":false,"operationally_verified":false}],"workstreams":[{"workstream_id":"persistence-workspace-charter-v0.1","branch":"coord/persistence-workspace-charter-v0.1","pull_request":4,"write_owner":"HELIX — Data, Evidence, and Persistence conversation","objective":"Register the persistence workspace and publish a repository-ready charter that defines authoritative entities, lifecycle transitions, authority and integrity boundaries, evidence and audit requirements, failure recovery, replay behavior, query requirements, storage classes, and the entry gates for a future dedicated persistence repository.","status":"draft_pull_request_open_ci_pending","status_resolution":"Resolve the pull-request number, exact current head, CI, reviews and merge approval from live GitHub metadata.","authority_expiry_condition":"Temporary coordination write authority expires automatically when the pull request for this branch closes or merges; it does not grant authority in any future persistence repository.","permitted_paths":[".project/active-work.json",".helix/conversation-role-registry.json","tests/test_conversation_roles.py","docs/charters/data-evidence-persistence-v0.1.md"],"protected_paths":[".github/workflows/**",".helix/schemas/**","scripts/**","runtime/**","deployment/**","**/*credential*","**/*secret*","external repositories"],"capability_boundary":{"repository_writes":"Only the four declared coordination paths in anthonyedgar30000/HELIX30000 on coord/persistence-workspace-charter-v0.1","pull_request_creation":true,"pull_request_merge":false,"dedicated_repository_creation":false,"external_repository_writes":false,"database_schema_implementation":false,"database_deployment":false,"legacy_prototype_import":false,"cloud_mutation":false,"credential_use":false},"verification_criteria":["the conversation-role registry validates","the complete unittest suite passes","the persistence workspace is registered as a design role without repository or branch ownership","the charter starts with authoritative entities and transitions rather than a database product","the charter keeps canonical state, evidence originals, audit history, Git-controlled definitions and derived indexes distinct","HelixMemoryService is classified as prototype evidence and is not promoted as canonical","the diff contains only the four declared paths","no runtime, workflow, schema, credential, deployment, database or external-repository files change"],"next_gate":"Obtain exact-head CI and final read-only changed-scope review while PR #4 remains draft. Keep merge approval separate. Creating a dedicated persistence repository remains a later explicit user action."}],"pull_request_state_resolution":{"source_of_truth":"live_github_metadata","current_reconciliation_pull_request":4,"pull_request_identifier_semantics":"The pull-request number identifies the temporary workstream after creation. Its state, head, CI, reviews and merge status must be resolved live.","embedded_open_pull_request_list_is_canonical":false},"authority_boundary":{"helix30000_control_tower":"coordination-only outside an explicitly declared temporary workstream; stable role does not grant repository-write authority","persistence_workspace":"design authority only after merge; this temporary branch may modify only the four declared HELIX30000 coordination paths","future_persistence_repository":"not created and no repository authority exists","helix_memory_service":"read-only legacy prototype evidence; not canonical HELIX persistence and not imported by this increment","protocol_kernel":"read-only contract dependency; no external repository writes","contextos":"read-only boundary dependency; no external repository writes","service_tracer":"read-only evidence source; no external repository writes","database_mutations_authorized":false,"cloud_mutations_authorized":false}}
+{
+  "schema_version": "project.active-work.v1",
+  "project": "HELIX — Coordination and Reality Control",
+  "updated_on": "2026-07-22",
+  "repository_role": "HELIX umbrella architecture and coordination registry",
+  "resolution_rules": {
+    "current_default_branch_head": "Resolve from live GitHub metadata. Embedded commit SHAs are historical observations and must not be treated as the current head after later commits or merges.",
+    "open_pull_requests": "Resolve from live GitHub metadata. Do not maintain a supposedly canonical embedded open-PR list that becomes stale when this file is committed.",
+    "temporary_write_authority": "A temporary write claim is valid only for its named repository branch, declared paths, and open pull request. It expires automatically when that pull request closes or merges.",
+    "current_ci_review_and_merge_gate": "Resolve from live GitHub workflow, review,pull-request and approval metadata for the exact current head. Do not embed a current pass, pending or approval state as canonical project truth.",
+    "source_precedence": [
+      "live operational evidence",
+      "live deployed-resource evidence",
+      "live GitHub repository, pull-request, review and CI metadata",
+      "active branch .project state",
+      "merged main .project state",
+      "conversation-role registry",
+      "ChatGPT project instructions and conversation memory"
+    ]
+  },
+  "trusted_baseline": {
+    "branch": "main",
+    "resolution": "live_github_default_branch_head",
+    "last_observed_commit": "03a03c54b17c30ddcb1448a888249aef0d92ab44",
+    "observed_on": "2026-07-22",
+    "observation_semantics": "Historical observation of main immediately after HELIX30000 PR #3 merged. Live GitHub determines the current head.",
+    "last_completed_increment": {
+      "pull_request": 3,
+      "title": "Make post-merge reconciliation non-self-referential",
+      "head_commit": "2311fb9f71280240f6fc1111feb28c85eb0fdb35",
+      "merge_commit": "03a03c54b17c30ddcb1448a888249aef0d92ab44"
+    }
+  },
+  "completed_increments": [
+    {
+      "pull_request": 1,
+      "title": "Add HELIX conversation-role registry v0.1",
+      "head_commit": "e838c36b1e25ce902c6e9cbb460450f2a5865101",
+      "merge_commit": "a7335ad94749681e86bbf65ba632c562766bd2db",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29871475691,
+        "conclusion": "success"
+      },
+      "independent_review_completed": false,
+      "governance_exception": "PR #1 merged after exact-head CI but before the required independent coordination review was completed.",
+      "deployed": false,
+      "operationally_verified": false,
+      "chat_titles_automatically_applied": false
+    },
+    {
+      "pull_request": 2,
+      "title": "Reconcile registry after PR1 merge",
+      "head_commit": "e15c11d42b3c720d2b0dac7aed44c5de4d62c6d7",
+      "merge_commit": "102ca9dde2d1479c92a2c5967a46da31b0a8f3ed",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29881937812,
+        "conclusion": "success"
+      },
+      "review_record": {
+        "submitted_state": "COMMENTED",
+        "author_was_pull_request_author": true,
+        "independent_github_identity": false,
+        "findings_addressed_before_final_head": true
+      },
+      "independent_review_completed": false,
+      "governance_exception": "PR #2 merged after exact-head CI and after its owner-identity review findings were addressed, but without an independent review from a separate GitHub identity.",
+      "deployed": false,
+      "operationally_verified": false
+    },
+    {
+      "pull_request": 3,
+      "title": "Make post-merge reconciliation non-self-referential",
+      "head_commit": "2311fb9f71280240f6fc1111feb28c85eb0fdb35",
+      "merge_commit": "03a03c54b17c30ddcb1448a888249aef0d92ab44",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29889509277,
+        "conclusion": "success"
+      },
+      "independent_review_completed": false,
+      "governance_exception": "PR #3 merged after exact-head CI and owner-side read-only review, but without a submitted review from a separate GitHub identity.",
+      "deployed": false,
+      "operationally_verified": false
+    }
+  ],
+  "workstreams": [
+    {
+      "workstream_id": "persistence-workspace-charter-v0.1",
+      "branch": "coord/persistence-workspace-charter-v0.1",
+      "pull_request": 4,
+      "write_owner": "HELIX — Data, Evidence, and Persistence conversation",
+      "objective": "Register the persistence workspace and publish a repository-ready charter that defines authoritative entities, lifecycle transitions, authority and integrity boundaries, evidence and audit requirements, failure recovery, replay behavior, query requirements, storage classes, and the entry gates for a future dedicated persistence repository.",
+      "status": "draft_pull_request_open_ci_pending",
+      "status_resolution": "Resolve the pull-request number, exact current head, CI, reviews and merge approval from live GitHub metadata.",
+      "authority_expiry_condition": "Temporary coordination write authority expires automatically when the pull request for this branch closes or merges; it does not grant authority in any future persistence repository.",
+      "permitted_paths": [
+        ".project/active-work.json",
+        ".helix/conversation-role-registry.json",
+        "tests/test_conversation_roles.py",
+        "docs/charters/data-evidence-persistence-v0.1.md"
+      ],
+      "protected_paths": [
+        ".github/workflows/**",
+        ".helix/schemas/**",
+        "scripts/**",
+        "runtime/**",
+        "deployment/**",
+        "**/*credential*",
+        "**/*secret*",
+        "external repositories"
+      ],
+      "capability_boundary": {
+        "repository_writes": "Only the four declared coordination paths in anthonyedgar30000/HELIX30000 on coord/persistence-workspace-charter-v0.1",
+        "pull_request_creation": true,
+        "pull_request_merge": false,
+        "dedicated_repository_creation": false,
+        "external_repository_writes": false,
+        "database_schema_implementation": false,
+        "database_deployment": false,
+        "legacy_prototype_import": false,
+        "cloud_mutation": false,
+        "credential_use": false
+      },
+      "verification_criteria": [
+        "the conversation-role registry validates",
+        "the complete unittest suite passes",
+        "the persistence workspace is registered as a design role without repository or branch ownership",
+        "the charter starts with authoritative entities and transitions rather than a database product",
+        "the charter keeps canonical state, evidence originals, audit history, Git-controlled definitions and derived indexes distinct",
+        "HelixMemoryService is classified as prototype evidence and is not promoted as canonical",
+        "the diff contains only the four declared paths",
+        "no runtime, workflow, schema, credential, deployment, database or external-repository files change"
+      ],
+      "next_gate": "Obtain exact-head CI and final read-only changed-scope review while PR #4 remains draft. Keep merge approval separate. Creating a dedicated persistence repository remains a later explicit user action."
+    }
+  ],
+  "pull_request_state_resolution": {
+    "source_of_truth": "live_github_metadata",
+    "current_reconciliation_pull_request": 4,
+    "pull_request_identifier_semantics": "The pull-request number identifies the temporary workstream after creation. Its state, head, CI, reviews and merge status must be resolved live.",
+    "embedded_open_pull_request_list_is_canonical": false
+  },
+  "authority_boundary": {
+    "helix30000_control_tower": "coordination-only outside an explicitly declared temporary workstream; stable role does not grant repository-write authority",
+    "persistence_workspace": "design authority only after merge; this temporary branch may modify only the four declared HELIX30000 coordination paths",
+    "future_persistence_repository": "not created and no repository authority exists",
+    "helix_memory_service": "read-only legacy prototype evidence; not canonical HELIX persistence and not imported by this increment",
+    "protocol_kernel": "read-only contract dependency; no external repository writes",
+    "contextos": "read-only boundary dependency; no external repository writes",
+    "service_tracer": "read-only evidence source; no external repository writes",
+    "database_mutations_authorized": false,
+    "cloud_mutations_authorized": false
+  }
+}
