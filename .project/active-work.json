@@ -7,7 +7,7 @@
     "current_default_branch_head": "Resolve from live GitHub metadata. Embedded commit SHAs are historical observations and must not be treated as the current head after later commits or merges.",
     "open_pull_requests": "Resolve from live GitHub metadata. Do not maintain a supposedly canonical embedded open-PR list that becomes stale when this file is committed.",
     "temporary_write_authority": "A temporary write claim is valid only for its named repository branch, declared paths, and open pull request. It expires automatically when that pull request closes or merges.",
-    "current_ci_review_and_merge_gate": "Resolve from live GitHub workflow, review,pull-request and approval metadata for the exact current head. Do not embed a current pass, pending or approval state as canonical project truth.",
+    "current_ci_review_and_merge_gate": "Resolve from live GitHub workflow, review, pull-request and approval metadata for the exact current head. Do not embed a current pass, pending or approval state as canonical project truth.",
     "source_precedence": [
       "live operational evidence",
       "live deployed-resource evidence",
@@ -92,7 +92,7 @@
       "pull_request": 4,
       "write_owner": "HELIX — Data, Evidence, and Persistence conversation",
       "objective": "Register the persistence workspace and publish a repository-ready charter that defines authoritative entities, lifecycle transitions, authority and integrity boundaries, evidence and audit requirements, failure recovery, replay behavior, query requirements, storage classes, and the entry gates for a future dedicated persistence repository.",
-      "status": "draft_pull_request_open_ci_pending",
+      "status": "draft_pull_request_open_live_gates_resolved",
       "status_resolution": "Resolve the pull-request number, exact current head, CI, reviews and merge approval from live GitHub metadata.",
       "authority_expiry_condition": "Temporary coordination write authority expires automatically when the pull request for this branch closes or merges; it does not grant authority in any future persistence repository.",
       "permitted_paths": [
@@ -133,7 +133,7 @@
         "the diff contains only the four declared paths",
         "no runtime, workflow, schema, credential, deployment, database or external-repository files change"
       ],
-      "next_gate": "Obtain exact-head CI and final read-only changed-scope review while PR #4 remains draft. Keep merge approval separate. Creating a dedicated persistence repository remains a later explicit user action."
+      "next_gate": "Resolve exact-head CI and final read-only changed-scope review from live metadata while PR #4 remains draft. Keep merge approval separate. Creating a dedicated persistence repository remains a later explicit user action."
     }
   ],
   "pull_request_state_resolution": {
