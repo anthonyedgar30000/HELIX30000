@@ -114,7 +114,7 @@
     {
       "workstream_id": "persistence-charter-pr4-merge-reconciliation",
       "branch": "chore/reconcile-persistence-charter-merge",
-      "pull_request": null,
+      "pull_request": 6,
       "write_owner": "HELIX — Coordination and Reality Control conversation",
       "objective": "Reconcile HELIX30000 after PR #4 merged by recording the completed persistence-charter increment, preserving the missing independent-review exception, releasing the expired PR #4 write claim, and keeping future dedicated-repository creation as a separate explicit action.",
       "status": "temporary_claim_active_while_pull_request_is_open",
@@ -156,12 +156,12 @@
         "the persistence charter remains design authority only",
         "no dedicated repository, database schema, deployment, legacy import, runtime, workflow, registry, test, credential, cloud or external-repository file changes"
       ],
-      "next_gate": "Open a draft coordination-only pull request, bind its number into this record, obtain exact-head CI, confirm the one-file diff, and keep merge as a separate explicit decision."
+      "next_gate": "Obtain exact-head CI for the final PR #6 coordination head, confirm the diff remains exactly one file, and keep merge as a separate explicit decision."
     }
   ],
   "pull_request_state_resolution": {
     "source_of_truth": "live_github_metadata",
-    "current_reconciliation_pull_request": null,
+    "current_reconciliation_pull_request": 6,
     "pull_request_identifier_semantics": "The pull-request number identifies the temporary reconciliation workstream after creation. Its state, head, CI, reviews and merge status must be resolved live.",
     "embedded_open_pull_request_list_is_canonical": false
   },
