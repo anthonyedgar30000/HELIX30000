@@ -1,6 +1,6 @@
 {
   "schema_version": "helix.conversation-role-registry.v1",
-  "updated_on": "2026-07-21",
+  "updated_on": "2026-07-22",
   "authority_model": {
     "source_precedence": [
       "live_github_metadata",
@@ -397,6 +397,52 @@
         "repository": "anthonyedgar30000/HELIX30000",
         "observed_ref": "user-provided ChatGPT project screenshot",
         "observed_on": "2026-07-21"
+      }
+    },
+    {
+      "role_id": "helix-data-evidence-persistence-design",
+      "desired_chat_title": "[DESIGN] HELIX — Data, Evidence & Persistence",
+      "role_type": "design_reference",
+      "authority_state": "none",
+      "current_conversation_label": "Reality Sync",
+      "owned_repository": null,
+      "owned_branch": null,
+      "target": {
+        "repository": null,
+        "branch": null,
+        "pull_request": null,
+        "head_sha": null
+      },
+      "current_status": "workspace_registered_charter_bootstrap_in_progress_dedicated_repository_not_yet_created",
+      "allowed_actions": [
+        "design_discussion",
+        "cross_repository_read_only_lookup",
+        "propose_bounded_workstream",
+        "define_authoritative_models",
+        "define_integrity_and_recovery_requirements"
+      ],
+      "prohibited_actions": [
+        "repository_write",
+        "branch_ownership_claim",
+        "pull_request_merge",
+        "database_deployment",
+        "cloud_mutation",
+        "legacy_prototype_promotion"
+      ],
+      "lifecycle": {
+        "proposed": true,
+        "implemented": false,
+        "ci_verified": false,
+        "merged": false,
+        "deployed": false,
+        "operationally_verified": false
+      },
+      "evidence": {
+        "source_kind": "live_github_reality_sync_and_project_scope",
+        "evidence_strength": "authoritative_for_workspace_classification_not_implementation",
+        "repository": "anthonyedgar30000/HELIX30000",
+        "observed_ref": "main@03a03c54b17c30ddcb1448a888249aef0d92ab44; no dedicated persistence repository found; HelixMemoryService remains legacy prototype evidence",
+        "observed_on": "2026-07-22"
       }
     }
   ]

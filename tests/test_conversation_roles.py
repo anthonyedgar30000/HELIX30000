@@ -24,9 +24,26 @@ class ConversationRoleRegistryTests(unittest.TestCase):
     def test_current_registry_validates(self) -> None:
         result = validate_registry(copy.deepcopy(self.registry))
         self.assertTrue(result["valid"])
-        self.assertEqual(result["role_count"], 9)
+        self.assertEqual(result["role_count"], 10)
         self.assertEqual(result["confirmed_writer_count"], 2)
         self.assertEqual(result["chat_title_application"], "manual_only")
+
+    def test_persistence_workspace_is_design_only(self) -> None:
+        persistence = next(
+            role
+            for role in self.registry["roles"]
+            if role["role_id"] == "helix-data-evidence-persistence-design"
+        )
+        self.assertEqual(persistence["role_type"], "design_reference")
+        self.assertEqual(persistence["authority_state"], "none")
+        self.assertIsNone(persistence["owned_repository"])
+        self.assertIsNone(persistence["owned_branch"])
+        self.assertNotIn("repository_write", persistence["allowed_actions"])
+        self.assertIn("repository_write", persistence["prohibited_actions"])
+        self.assertIn(
+            "legacy_prototype_promotion",
+            persistence["prohibited_actions"],
+        )
 
     def test_duplicate_confirmed_writer_for_branch_is_rejected(self) -> None:
         modified = copy.deepcopy(self.registry)
