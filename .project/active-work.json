@@ -37,7 +37,7 @@
       "pull_request": 2,
       "write_owner": "HELIX — Governed Agent Engineering / Coordination and Reality Control conversation",
       "objective": "Reconcile HELIX30000 after PR #1 merged by recording the merge and skipped review gate, releasing the obsolete feature-branch role claim, and separating stable control-tower coordination from temporary branch ownership.",
-      "status": "review_findings_addressed_fresh_exact_head_ci_pending",
+      "status": "review_findings_addressed_ci_resolved_from_live_github_independent_review_pending",
       "authority_expiry_condition": "This write claim expires automatically when PR #2 closes or merges; live GitHub state outranks this record.",
       "permitted_paths": [
         ".project/active-work.json",
@@ -74,7 +74,7 @@
         "the pull-request diff remains inside permitted_paths",
         "CI uses no secrets, cloud credentials, external APIs, or mutation capabilities"
       ],
-      "next_gate": "Wait for successful CI on the fresh patched head, then obtain an independent coordination review from a separate GitHub identity. Keep PR #2 draft and do not merge from this conversation.",
+      "next_gate": "Confirm exact-current-head CI from live GitHub metadata, then obtain an independent coordination review from a separate GitHub identity. If the head changes, repeat both checks. Keep PR #2 draft and do not merge from this conversation.",
       "reviewed_head_evidence": {
         "head_commit": "25cc3f2b240e9fc78252d5f0eac8a02d94421938",
         "exact_head_ci": {
@@ -92,6 +92,16 @@
             "restore deterministic human-reviewable JSON formatting"
           ]
         }
+      },
+      "live_ci_resolution": {
+        "source_of_truth": "live_github_workflow_metadata",
+        "latest_observed_head": "408163e9ccd422907f85326614b68a35acd06757",
+        "latest_observed_run": {
+          "workflow": "CI",
+          "run_id": 29881834571,
+          "conclusion": "success"
+        },
+        "evidence_boundary": "Embedding a CI observation creates a later commit, so this object is historical evidence only. Live GitHub metadata determines whether the exact current head is CI-verified."
       }
     }
   ],
@@ -99,8 +109,8 @@
     {
       "pull_request": 2,
       "title": "Reconcile registry after PR1 merge",
-      "status": "draft_review_findings_addressed_fresh_exact_head_ci_pending",
-      "action": "Keep draft pending fresh exact-head CI and independent coordination review from a separate GitHub identity."
+      "status": "draft_review_findings_addressed_ci_resolved_from_live_github_independent_review_pending",
+      "action": "Resolve exact-current-head CI from live GitHub metadata and keep draft pending independent coordination review from a separate GitHub identity."
     }
   ],
   "authority_boundary": {
