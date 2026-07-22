@@ -37,7 +37,7 @@
       "pull_request": 2,
       "write_owner": "HELIX — Governed Agent Engineering / Coordination and Reality Control conversation",
       "objective": "Reconcile HELIX30000 after PR #1 merged by recording the merge and skipped review gate, releasing the obsolete feature-branch role claim, and separating stable control-tower coordination from temporary branch ownership.",
-      "status": "draft_pr_open_ci_pending",
+      "status": "review_findings_addressed_fresh_exact_head_ci_pending",
       "authority_expiry_condition": "This write claim expires automatically when PR #2 closes or merges; live GitHub state outranks this record.",
       "permitted_paths": [
         ".project/active-work.json",
@@ -74,15 +74,33 @@
         "the pull-request diff remains inside permitted_paths",
         "CI uses no secrets, cloud credentials, external APIs, or mutation capabilities"
       ],
-      "next_gate": "Obtain exact-head CI and an independent coordination review. Keep PR #2 draft and do not merge from this conversation."
+      "next_gate": "Wait for successful CI on the fresh patched head, then obtain an independent coordination review from a separate GitHub identity. Keep PR #2 draft and do not merge from this conversation.",
+      "reviewed_head_evidence": {
+        "head_commit": "25cc3f2b240e9fc78252d5f0eac8a02d94421938",
+        "exact_head_ci": {
+          "workflow": "CI",
+          "run_id": 29873255467,
+          "conclusion": "success"
+        },
+        "review": {
+          "github_review_id": 4749978231,
+          "recorded_decision": "request_changes",
+          "independent_github_identity": false,
+          "required_changes": [
+            "record the successful CI evidence without treating it as verification of a later patched head",
+            "refresh HELIX Protocol Kernel PR #4 to the live head and exact-head CI run",
+            "restore deterministic human-reviewable JSON formatting"
+          ]
+        }
+      }
     }
   ],
   "known_open_pull_requests": [
     {
       "pull_request": 2,
       "title": "Reconcile registry after PR1 merge",
-      "status": "draft_ci_pending",
-      "action": "Keep draft pending exact-head CI and independent coordination review."
+      "status": "draft_review_findings_addressed_fresh_exact_head_ci_pending",
+      "action": "Keep draft pending fresh exact-head CI and independent coordination review from a separate GitHub identity."
     }
   ],
   "authority_boundary": {
