@@ -195,6 +195,7 @@
         "repository_writes": "Only .project/active-work.json in anthonyedgar30000/HELIX30000 on agent/make-project-state-live-resolved",
         "pull_request_creation": true,
         "pull_request_merge": false,
+        "dedicated_repository_creation": false,
         "external_repository_writes": false,
         "database_schema_implementation": false,
         "database_deployment": false,
