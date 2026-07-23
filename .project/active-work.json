@@ -142,10 +142,10 @@
     {
       "workstream_id": "pr6-merge-state-reconciliation",
       "branch": "agent/reconcile-pr6-merge-state",
-      "pull_request": null,
+      "pull_request": 7,
       "write_owner": "HELIX — Coordination and Reality Control conversation",
       "objective": "Reconcile HELIX30000 after PR #6 merged by recording its merge, exact-head CI and owner-review evidence, releasing the expired PR #6 temporary workstream, and preserving the distinction between repository progress and deployment or operational verification.",
-      "status": "branch_created_pull_request_pending",
+      "status": "draft_pull_request_open_live_gates_pending",
       "status_resolution": "Resolve the pull-request number, exact current head, CI, reviews and merge approval from live GitHub metadata.",
       "authority_expiry_condition": "This temporary one-file write claim expires automatically when its pull request closes or merges.",
       "permitted_paths": [
@@ -184,13 +184,13 @@
         "all completed HELIX increments remain deployed false and operationally_verified false",
         "no runtime, workflow, registry, test, charter, credential, database, cloud or external-repository file changes"
       ],
-      "next_gate": "Open a draft pull request, bind its number into this workstream, obtain exact-head CI, confirm the final diff remains exactly one file, and keep merge as a separate explicit decision."
+      "next_gate": "Obtain exact-head CI for the final PR #7 coordination head, confirm the complete pull-request diff remains exactly one file, record a final read-only scope review, and keep merge as a separate explicit decision."
     }
   ],
   "pull_request_state_resolution": {
     "source_of_truth": "live_github_metadata",
     "current_reconciliation_branch": "agent/reconcile-pr6-merge-state",
-    "current_reconciliation_pull_request": null,
+    "current_reconciliation_pull_request": 7,
     "pull_request_identifier_semantics": "The pull-request number identifies the temporary reconciliation workstream after creation. Its state, head, CI, reviews and merge status must be resolved live.",
     "embedded_open_pull_request_list_is_canonical": false
   },
