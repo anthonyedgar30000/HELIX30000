@@ -16,19 +16,21 @@
       "merged main .project state",
       "conversation-role registry",
       "ChatGPT project instructions and conversation memory"
-    ]
+    ],
+    "completed_increment_history": "Completed increments are historical evidence, not an exhaustive or current ledger. Resolve the latest merged pull request, current default-branch head, CI, reviews and merge state from live GitHub.",
+    "workstream_entries": "Workstream entries are bounded claim declarations, not proof that authority is currently active. A claim is active only while live GitHub shows an open pull request for the exact declared branch; it expires automatically when that pull request closes or merges and does not require a follow-up commit merely to mark expiry."
   },
   "trusted_baseline": {
     "branch": "main",
     "resolution": "live_github_default_branch_head",
-    "last_observed_commit": "f117ee1ffbd619fd7c5e781e580bf73c9cc30c82",
+    "last_observed_commit": "34875c15bed3e6947f834df29b8810d0e718e86d",
     "observed_on": "2026-07-22",
-    "observation_semantics": "Historical observation of main immediately after HELIX30000 PR #6 merged. Live GitHub determines the current head.",
-    "last_completed_increment": {
-      "pull_request": 6,
-      "title": "Reconcile persistence charter merge state",
-      "head_commit": "f16a08c6b58e7edb5a4f36b0705d4ee4a94e8dcf",
-      "merge_commit": "f117ee1ffbd619fd7c5e781e580bf73c9cc30c82"
+    "observation_semantics": "Historical observation of main immediately after HELIX30000 PR #7 merged. Live GitHub determines the current head and latest completed increment after later commits or merges.",
+    "last_observed_completed_increment": {
+      "pull_request": 7,
+      "title": "Reconcile PR 6 merge state",
+      "head_commit": "c1b1b5d2a4735a9556099697d970a97ef6316784",
+      "merge_commit": "34875c15bed3e6947f834df29b8810d0e718e86d"
     }
   },
   "completed_increments": [
@@ -136,18 +138,44 @@
       "legacy_prototype_imported": false,
       "deployed": false,
       "operationally_verified": false
+    },
+    {
+      "pull_request": 7,
+      "title": "Reconcile PR 6 merge state",
+      "head_commit": "c1b1b5d2a4735a9556099697d970a97ef6316784",
+      "merge_commit": "34875c15bed3e6947f834df29b8810d0e718e86d",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29978416555,
+        "conclusion": "success"
+      },
+      "changed_file_scope": [
+        ".project/active-work.json"
+      ],
+      "created_as_draft": true,
+      "submitted_reviews": 0,
+      "independent_review_completed": false,
+      "governance_exception": "PR #7 merged after exact-head CI but before its pull-request number was bound into .project and without a submitted technical or independent review.",
+      "post_merge_branch_commit": {
+        "commit": "bc732fa08b1f432d65398f6ca0f76ad47ee377bc",
+        "status": "not_merged_superseded",
+        "semantics": "This commit was written to the source branch after PR #7 had already merged. It is not part of main, carries no continuing write authority, and must not be promoted as accepted project state."
+      },
+      "deployed": false,
+      "operationally_verified": false
     }
   ],
   "workstreams": [
     {
-      "workstream_id": "pr6-merge-state-reconciliation",
-      "branch": "agent/reconcile-pr6-merge-state",
+      "workstream_id": "make-project-state-live-resolved",
+      "branch": "agent/make-project-state-live-resolved",
       "pull_request": null,
+      "pull_request_resolution": "resolve_live_by_exact_head_branch",
       "write_owner": "HELIX — Coordination and Reality Control conversation",
-      "objective": "Reconcile HELIX30000 after PR #6 merged by recording its merge, exact-head CI and owner-review evidence, releasing the expired PR #6 temporary workstream, and preserving the distinction between repository progress and deployment or operational verification.",
-      "status": "branch_created_pull_request_pending",
-      "status_resolution": "Resolve the pull-request number, exact current head, CI, reviews and merge approval from live GitHub metadata.",
-      "authority_expiry_condition": "This temporary one-file write claim expires automatically when its pull request closes or merges.",
+      "objective": "Record PR #7 as merged, preserve its review and merge-gate exception, classify the post-merge branch commit as unaccepted, and make workstream and completed-increment state explicitly live-resolved so coordination merges do not create an endless reconciliation loop.",
+      "status": "live_resolved_claim_declaration",
+      "status_resolution": "Do not infer active authority from this file. Resolve whether this branch has an open pull request, its exact head, CI, reviews and merge state from live GitHub.",
+      "authority_expiry_condition": "This temporary one-file claim is active only while a live open pull request exists for this exact branch and expires automatically when it closes or merges.",
       "permitted_paths": [
         ".project/active-work.json"
       ],
@@ -164,10 +192,9 @@
         "external repositories"
       ],
       "capability_boundary": {
-        "repository_writes": "Only .project/active-work.json in anthonyedgar30000/HELIX30000 on agent/reconcile-pr6-merge-state",
+        "repository_writes": "Only .project/active-work.json in anthonyedgar30000/HELIX30000 on agent/make-project-state-live-resolved",
         "pull_request_creation": true,
         "pull_request_merge": false,
-        "dedicated_repository_creation": false,
         "external_repository_writes": false,
         "database_schema_implementation": false,
         "database_deployment": false,
@@ -177,21 +204,23 @@
       },
       "verification_criteria": [
         "the exact pull-request diff contains only .project/active-work.json",
-        "PR #6 is recorded as merged at f117ee1ffbd619fd7c5e781e580bf73c9cc30c82",
-        "PR #6 exact-head CI run 29955055054 is recorded as successful",
-        "the owner-authored COMMENTED review is recorded without being promoted to independent approval",
-        "the expired PR #6 temporary workstream is no longer active",
-        "all completed HELIX increments remain deployed false and operationally_verified false",
+        "PR #7 is recorded as merged at 34875c15bed3e6947f834df29b8810d0e718e86d",
+        "PR #7 exact-head CI run 29978416555 is recorded as successful",
+        "PR #7 is recorded with zero submitted reviews and its premature merge gate exception remains visible",
+        "post-merge branch commit bc732fa08b1f432d65398f6ca0f76ad47ee377bc is classified as not merged and superseded",
+        "workstream entries no longer assert current authority or require embedded pull-request numbers",
+        "completed increment history is explicitly historical and non-exhaustive",
+        "all HELIX deployment and operational-verification claims remain false",
         "no runtime, workflow, registry, test, charter, credential, database, cloud or external-repository file changes"
       ],
-      "next_gate": "Open a draft pull request, bind its number into this workstream, obtain exact-head CI, confirm the final diff remains exactly one file, and keep merge as a separate explicit decision."
+      "next_gate": "Open one draft pull request from this branch, obtain exact-head CI and a final read-only one-file scope review, and keep merge as a separate explicit decision. Do not add a pull-request-number binding commit."
     }
   ],
   "pull_request_state_resolution": {
     "source_of_truth": "live_github_metadata",
-    "current_reconciliation_branch": "agent/reconcile-pr6-merge-state",
-    "current_reconciliation_pull_request": null,
-    "pull_request_identifier_semantics": "The pull-request number identifies the temporary reconciliation workstream after creation. Its state, head, CI, reviews and merge status must be resolved live.",
+    "current_reconciliation_branch": "agent/make-project-state-live-resolved",
+    "current_reconciliation_pull_request": "resolve_live_by_exact_head_branch",
+    "pull_request_identifier_semantics": "A pull-request number may be reported in review evidence but is not embedded as current canonical state. Resolve open, closed, merged, head, CI, review and approval state live.",
     "embedded_open_pull_request_list_is_canonical": false
   },
   "next_bounded_candidate": {
@@ -218,5 +247,12 @@
     "service_tracer": "read-only evidence source; no external repository writes",
     "database_mutations_authorized": false,
     "cloud_mutations_authorized": false
+  },
+  "workstream_semantics": {
+    "entries_are_claim_declarations_not_current_state": true,
+    "activation_rule": "active only while live GitHub shows an open pull request whose head branch exactly matches the declared branch",
+    "expiry_rule": "authority expires automatically when the matching pull request closes or merges",
+    "post_merge_cleanup_commit_required": false,
+    "embedded_pull_request_number_required": false
   }
 }
