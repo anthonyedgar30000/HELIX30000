@@ -36,83 +36,155 @@
   "completed_increments": [
     {
       "pull_request": 1,
+      "title": "Add HELIX conversation-role registry v0.1",
       "head_commit": "e838c36b1e25ce902c6e9cbb460450f2a5865101",
       "merge_commit": "a7335ad94749681e86bbf65ba632c562766bd2db",
-      "exact_head_ci_run": 29871475691,
-      "exact_head_ci_conclusion": "success",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29871475691,
+        "conclusion": "success"
+      },
       "independent_review_completed": false,
+      "governance_exception": "PR #1 merged after exact-head CI but before the required independent coordination review was completed.",
       "deployed": false,
-      "operationally_verified": false
+      "operationally_verified": false,
+      "chat_titles_automatically_applied": false
     },
     {
       "pull_request": 2,
+      "title": "Reconcile registry after PR1 merge",
       "head_commit": "e15c11d42b3c720d2b0dac7aed44c5de4d62c6d7",
       "merge_commit": "102ca9dde2d1479c92a2c5967a46da31b0a8f3ed",
-      "exact_head_ci_run": 29881937812,
-      "exact_head_ci_conclusion": "success",
-      "review_identity": "owner_not_independent",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29881937812,
+        "conclusion": "success"
+      },
+      "review_record": {
+        "submitted_state": "COMMENTED",
+        "author_was_pull_request_author": true,
+        "independent_github_identity": false,
+        "findings_addressed_before_final_head": true
+      },
       "independent_review_completed": false,
+      "governance_exception": "PR #2 merged after exact-head CI and after its owner-identity review findings were addressed, but without an independent review from a separate GitHub identity.",
       "deployed": false,
       "operationally_verified": false
     },
     {
       "pull_request": 3,
+      "title": "Make post-merge reconciliation non-self-referential",
       "head_commit": "2311fb9f71280240f6fc1111feb28c85eb0fdb35",
       "merge_commit": "03a03c54b17c30ddcb1448a888249aef0d92ab44",
-      "exact_head_ci_run": 29889509277,
-      "exact_head_ci_conclusion": "success",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29889509277,
+        "conclusion": "success"
+      },
       "independent_review_completed": false,
+      "governance_exception": "PR #3 merged after exact-head CI and owner-side read-only review, but without a submitted review from a separate GitHub identity.",
       "deployed": false,
       "operationally_verified": false
     },
     {
       "pull_request": 4,
+      "title": "Register HELIX persistence workspace and charter v0.1",
       "head_commit": "b090331db748bd1fcbdae1712772c4253238086b",
       "merge_commit": "be6ec9bf6d84a5fa4b0a5ef4b22edd5cbc37eb26",
-      "exact_head_ci_run": 29944855896,
-      "exact_head_ci_conclusion": "success",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29944855896,
+        "conclusion": "success"
+      },
+      "changed_file_scope": [
+        ".project/active-work.json",
+        ".helix/conversation-role-registry.json",
+        "tests/test_conversation_roles.py",
+        "docs/charters/data-evidence-persistence-v0.1.md"
+      ],
       "independent_review_completed": false,
-      "dedicated_persistence_repository_created_at_that_time": false,
+      "governance_exception": "PR #4 merged after exact-head CI but without a requested or submitted independent review from a separate GitHub identity.",
+      "dedicated_persistence_repository_created": false,
       "database_schema_implemented": false,
       "database_deployed": false,
+      "legacy_prototype_imported": false,
       "deployed": false,
       "operationally_verified": false
     },
     {
       "pull_request": 6,
+      "title": "Reconcile persistence charter merge state",
       "head_commit": "f16a08c6b58e7edb5a4f36b0705d4ee4a94e8dcf",
       "merge_commit": "f117ee1ffbd619fd7c5e781e580bf73c9cc30c82",
-      "exact_head_ci_run": 29955055054,
-      "exact_head_ci_conclusion": "success",
-      "review_identity": "owner_not_independent",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29955055054,
+        "conclusion": "success"
+      },
+      "changed_file_scope": [
+        ".project/active-work.json"
+      ],
+      "review_record": {
+        "submitted_state": "COMMENTED",
+        "author_was_pull_request_author": true,
+        "independent_github_identity": false,
+        "technical_disposition": "pass_no_blocking_findings"
+      },
       "independent_review_completed": false,
+      "governance_exception": "PR #6 merged after exact-head CI and owner-side technical review, but without a submitted review from a separate GitHub identity.",
+      "dedicated_persistence_repository_created": false,
+      "database_schema_implemented": false,
+      "database_deployed": false,
+      "legacy_prototype_imported": false,
       "deployed": false,
       "operationally_verified": false
     },
     {
       "pull_request": 7,
+      "title": "Reconcile PR 6 merge state",
       "head_commit": "c1b1b5d2a4735a9556099697d970a97ef6316784",
       "merge_commit": "34875c15bed3e6947f834df29b8810d0e718e86d",
-      "exact_head_ci_run": 29978416555,
-      "exact_head_ci_conclusion": "success",
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29978416555,
+        "conclusion": "success"
+      },
+      "changed_file_scope": [
+        ".project/active-work.json"
+      ],
+      "created_as_draft": true,
       "submitted_reviews": 0,
       "independent_review_completed": false,
+      "governance_exception": "PR #7 merged after exact-head CI but before its pull-request number was bound into .project and without a submitted technical or independent review.",
       "post_merge_branch_commit": {
         "commit": "bc732fa08b1f432d65398f6ca0f76ad47ee377bc",
-        "status": "not_merged_superseded"
+        "status": "not_merged_superseded",
+        "semantics": "This commit was written to the source branch after PR #7 had already merged. It is not part of main, carries no continuing write authority, and must not be promoted as accepted project state."
       },
       "deployed": false,
       "operationally_verified": false
     },
     {
       "pull_request": 8,
+      "title": "Make project reconciliation state live-resolved",
       "head_commit": "e692cc75f773fcad6fd5156ef8d5e61911b54132",
       "merge_commit": "f44870c7e870d249b94b8471d0eca0443d6c4be7",
-      "exact_head_ci_run": 29978827618,
-      "exact_head_ci_conclusion": "success",
-      "review_identity": "owner_not_independent",
-      "review_id": 4760715647,
+      "exact_head_ci": {
+        "workflow": "CI",
+        "run_id": 29978827618,
+        "conclusion": "success"
+      },
+      "changed_file_scope": [
+        ".project/active-work.json"
+      ],
+      "review_record": {
+        "submitted_state": "COMMENTED",
+        "author_was_pull_request_author": true,
+        "independent_github_identity": false,
+        "review_id": 4760715647
+      },
       "independent_review_completed": false,
+      "governance_exception": "PR #8 merged after exact-head CI and owner-identity review but without an independent review from a separate GitHub identity.",
       "deployed": false,
       "operationally_verified": false
     }
@@ -131,8 +203,11 @@
         "source_head": "a45b49e64494a3a15da67c989eeef0cbca494b7d",
         "merge_commit": "59cf801b5e28e82fcd3385713b505b549ae0addd",
         "merged": true,
-        "exact_head_ci_run": 30057587710,
-        "exact_head_ci_conclusion": "success",
+        "exact_head_ci": {
+          "workflow": "CI",
+          "run_id": 30057587710,
+          "conclusion": "success"
+        },
         "merge_commit_ci": "not_observed",
         "source_to_merge_file_content_differences": 0,
         "changed_file_count": 11,
@@ -163,11 +238,51 @@
       "workstream_id": "make-project-state-live-resolved",
       "branch": "agent/make-project-state-live-resolved",
       "pull_request": null,
-      "status": "historical_inactive_claim_declaration",
-      "authority_expiry_condition": "Authority expired when the matching pull request merged.",
+      "pull_request_resolution": "resolve_live_by_exact_head_branch",
+      "write_owner": "HELIX — Coordination and Reality Control conversation",
+      "objective": "Record PR #7 as merged, preserve its review and merge-gate exception, classify the post-merge branch commit as unaccepted, and make workstream and completed-increment state explicitly live-resolved so coordination merges do not create an endless reconciliation loop.",
+      "status": "live_resolved_claim_declaration",
+      "status_resolution": "Do not infer active authority from this file. Resolve whether this branch has an open pull request, its exact head, CI, reviews and merge state from live GitHub.",
+      "authority_expiry_condition": "This temporary one-file claim is active only while a live open pull request exists for this exact branch and expires automatically when it closes or merges.",
       "permitted_paths": [
         ".project/active-work.json"
-      ]
+      ],
+      "protected_paths": [
+        ".github/workflows/**",
+        ".helix/**",
+        "tests/**",
+        "docs/charters/**",
+        "scripts/**",
+        "runtime/**",
+        "deployment/**",
+        "**/*credential*",
+        "**/*secret*",
+        "external repositories"
+      ],
+      "capability_boundary": {
+        "repository_writes": "Only .project/active-work.json in anthonyedgar30000/HELIX30000 on agent/make-project-state-live-resolved",
+        "pull_request_creation": true,
+        "pull_request_merge": false,
+        "dedicated_repository_creation": false,
+        "external_repository_writes": false,
+        "database_schema_implementation": false,
+        "database_deployment": false,
+        "legacy_prototype_import": false,
+        "cloud_mutation": false,
+        "credential_use": false
+      },
+      "verification_criteria": [
+        "the exact pull-request diff contains only .project/active-work.json",
+        "PR #7 is recorded as merged at 34875c15bed3e6947f834df29b8810d0e718e86d",
+        "PR #7 exact-head CI run 29978416555 is recorded as successful",
+        "PR #7 is recorded with zero submitted reviews and its premature merge gate exception remains visible",
+        "post-merge branch commit bc732fa08b1f432d65398f6ca0f76ad47ee377bc is classified as not merged and superseded",
+        "workstream entries no longer assert current authority or require embedded pull-request numbers",
+        "completed increment history is explicitly historical and non-exhaustive",
+        "all HELIX deployment and operational-verification claims remain false",
+        "no runtime, workflow, registry, test, charter, credential, database, cloud or external-repository file changes"
+      ],
+      "next_gate": "This historical claim is inactive because its matching pull request merged. Live GitHub determines authority."
     },
     {
       "workstream_id": "reconcile-persistence-foundation-state",
