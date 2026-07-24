@@ -216,6 +216,28 @@
         "governance_exception_accepted": true,
         "governance_exception_semantics": "Accepted absence of independent review does not mean independent review completed; merge authorization did not authorize deployment."
       },
+      "reconciliation_pull_request": {
+        "number": 2,
+        "title": "Reconcile bootstrap merge state",
+        "branch": "agent/reconcile-bootstrap-merge-state",
+        "base_commit": "59cf801b5e28e82fcd3385713b505b549ae0addd",
+        "head_commit": "366389eb5dff414ac126bbd54ba61a2595150dff",
+        "state": "open",
+        "draft": true,
+        "changed_file_count": 1,
+        "changed_path": ".project/active-work.json",
+        "exact_head_ci": {
+          "workflow": "CI",
+          "run_id": 30087782442,
+          "conclusion": "success"
+        },
+        "write_owner": "HELIX — Data, Evidence, and Persistence conversation",
+        "scope": "state_reconciliation_only",
+        "temporary_write_authority_active": true,
+        "implementation_authority_granted": false,
+        "pull_request_merge_authorized": false,
+        "observation_semantics": "Current only while live GitHub continues to show this exact branch and pull request open at the observed head."
+      },
       "contract_foundation_implemented": true,
       "contract_foundation_merged": true,
       "database_schema_implemented": false,
@@ -228,7 +250,7 @@
       "operationally_verified": false,
       "source_issues": {
         "HELIX30000_issue_5": "closed_completed",
-        "HELIX30000_issue_9": "open_stale_to_be_closed_as_superseded_when_this_reconciliation_merges"
+        "HELIX30000_issue_9": "closed_not_planned_as_superseded_on_2026-07-24"
       },
       "observation_semantics": "Historical evidence captured from live GitHub. Re-resolve repository, branch, pull-request, CI, review and deployment state live before relying on it."
     }
@@ -290,7 +312,7 @@
       "pull_request": null,
       "pull_request_resolution": "resolve_live_by_exact_head_branch",
       "write_owner": "HELIX — Coordination and Reality Control conversation",
-      "objective": "Reconcile HELIX30000 coordination records with the verified persistence repository, merged contract foundation, completed creation gate, and continuing prohibition on database, runtime, cloud and deployment work.",
+      "objective": "Reconcile HELIX30000 coordination records with the verified persistence repository, merged contract foundation, completed creation gate, current persistence reconciliation workstream, and continuing prohibition on database, runtime, cloud and deployment work.",
       "status": "live_resolved_claim_declaration",
       "status_resolution": "Active only while live GitHub shows an open pull request for this exact branch. Resolve exact head, CI, reviews, issue disposition and merge state live.",
       "authority_expiry_condition": "Temporary authority expires automatically when the matching pull request closes or merges.",
@@ -312,7 +334,7 @@
       ],
       "capability_boundary": {
         "repository_writes": "Only .project/active-work.json in anthonyedgar30000/HELIX30000 on agent/reconcile-persistence-foundation-state",
-        "issue_supersession_via_pull_request": "HELIX30000 issue #9 may close only when this reconciliation pull request merges",
+        "issue_9_disposition": "Record the externally completed not_planned closure without claiming this pull request performed it",
         "pull_request_creation": true,
         "pull_request_merge": false,
         "external_repository_writes": false,
@@ -331,11 +353,12 @@
         "persistence PR #1 is recorded as merged at 59cf801b5e28e82fcd3385713b505b549ae0addd from tested head a45b49e64494a3a15da67c989eeef0cbca494b7d",
         "exact-head CI run 30057587710 is recorded as successful while merge-commit CI remains not observed",
         "the accepted missing-independent-review exception remains distinct from independent review completion",
-        "Issue #9 is superseded by verified repository creation and merged bootstrap evidence and closes only on reconciliation merge",
+        "Issue #9 is recorded as externally closed not_planned and superseded while this pull request remained open",
+        "persistence PR #2 is recorded as an active one-file state reconciliation workstream, not implementation authority",
         "database, runtime, migration, cloud, credential, legacy-import, deployment and operational-verification claims remain false",
-        "JSON parses successfully and repository CI passes"
+        "JSON remains structurally well formed and repository CI passes"
       ],
-      "next_gate": "Open one draft pull request, verify the exact one-file scope and exact-head CI, perform read-only review, and keep merge as a separate explicit human decision."
+      "next_gate": "Verify the final exact head, one-file scope, CI, reviews and concurrent persistence PR #2 state; keep merge as a separate explicit human decision."
     }
   ],
   "pull_request_state_resolution": {
@@ -349,7 +372,7 @@
     "candidate": "persistence_post_bootstrap_increment",
     "status": "not_started_requires_explicit_user_authorization",
     "authority": "none",
-    "safe_scope": "After a new live synchronization, define one bounded persistence design or implementation increment with its own branch, permitted paths, verification criteria and pull request. The merged contract foundation alone does not authorize a database schema, migrations, runtime service, cloud resources or deployment.",
+    "safe_scope": "After a new live synchronization and completion or closure of the active persistence reconciliation workstream, define one bounded persistence design or implementation increment with its own branch, permitted paths, verification criteria and pull request. The merged contract foundation alone does not authorize a database schema, migrations, runtime service, cloud resources or deployment.",
     "prohibited_without_new_authorization": [
       "database schema implementation",
       "database migration implementation or execution",
@@ -364,7 +387,7 @@
   "authority_boundary": {
     "helix30000_control_tower": "Coordination-only outside an explicitly declared temporary workstream; stable role does not grant repository-write authority.",
     "persistence_workspace": "Dedicated repository exists and its documentation-and-contract foundation is merged. This grants no database, runtime, deployment or cloud authority.",
-    "persistence_repository": "anthonyedgar30000/helix-data-evidence-persistence exists; current implementation authority is none because no live bounded persistence pull request is open.",
+    "persistence_repository": "anthonyedgar30000/helix-data-evidence-persistence exists; temporary authority is active only for the exact one-file reconciliation branch and PR recorded live, not for schema, runtime, deployment or cloud implementation.",
     "helix_memory_service": "Read-only legacy prototype evidence; not canonical HELIX persistence and not imported.",
     "protocol_kernel": "Read-only contract dependency; no external repository writes.",
     "contextos": "Read-only boundary dependency; no external repository writes.",
